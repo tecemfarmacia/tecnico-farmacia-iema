@@ -1,9 +1,7 @@
 const videoData = [
-  {
-    titulo: "Conheça o curso Técnico em Farmácia",
-    descricao: "Um vídeo de apresentação sobre o curso, a formação e a área de atuação.",
-    link: ""
-  }
+  { titulo: "Rotina do Técnico em Farmácia", descricao: "Um olhar rápido sobre o dia a dia da área.", link: "" },
+  { titulo: "Biossegurança na prática", descricao: "Cuidados essenciais em laboratório e saúde.", link: "" },
+  { titulo: "Educação em saúde", descricao: "Orientações simples que fazem diferença.", link: "" }
 ];
 
 const modalData = {
@@ -210,11 +208,11 @@ function renderQuiz() {
     const b = document.createElement("button");
     b.className = "quiz-option";
     b.textContent = opt;
-    b.addEventListener("click", () => answerQuiz(i));
+    b.addEventListener("click", () => answerQuiz(i, b));
     quizOptions.appendChild(b);
   });
 }
-function answerQuiz(i) {
+function answerQuiz(i, btn) {
   const item = quizQuestions[quizIndex];
   const correct = i === item.c;
   $$(".quiz-option", quizOptions).forEach((o, idx) => {
