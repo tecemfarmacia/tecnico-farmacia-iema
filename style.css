@@ -1,210 +1,873 @@
-:root{
-  --bg:#fffaf0;
-  --card:#ffffff;
-  --text:#1d1a14;
-  --muted:#665a4b;
-  --gold:#c8a536;
-  --gold2:#f1d98e;
-  --green:#5a8f67;
-  --border:rgba(29,26,20,.10);
-  --shadow:0 22px 55px rgba(29,26,20,.12);
-  --radius:28px;
+/* ==========================================================
+   CONFIGURAÇÃO
+   ========================================================== */
+
+/*
+   QUANDO OS VÍDEOS FOREM GRAVADOS:
+
+   Você pode colocar aqui o link do vídeo publicado.
+
+   Exemplo:
+
+   const VIDEO_PRINCIPAL =
+   "https://www.instagram.com/reel/SEU-LINK/";
+
+*/
+
+const VIDEO_PRINCIPAL = "";
+
+
+/*
+   INSTAGRAMS OFICIAIS
+*/
+
+const INSTAGRAM_TURMA =
+  "https://www.instagram.com/tcfarmacia01/";
+
+const INSTAGRAM_IEMA =
+  "https://www.instagram.com/iemaviana/";
+
+
+/* ==========================================================
+   MENU
+   ========================================================== */
+
+const menuButton = document.getElementById("menuButton");
+const mainMenu = document.getElementById("mainMenu");
+
+menuButton.addEventListener("click", () => {
+
+  const aberto = mainMenu.classList.toggle("open");
+
+  menuButton.setAttribute(
+    "aria-expanded",
+    aberto
+  );
+
+});
+
+document.querySelectorAll(".nav a").forEach(link => {
+
+  link.addEventListener("click", () => {
+
+    mainMenu.classList.remove("open");
+
+  });
+
+});
+
+
+/* ==========================================================
+   MODAIS DOS CARDS
+   ========================================================== */
+
+const modal =
+  document.getElementById("infoModal");
+
+const modalTitle =
+  document.getElementById("modalTitle");
+
+const modalText =
+  document.getElementById("modalText");
+
+const modalClose =
+  document.getElementById("modalClose");
+
+
+function abrirModal(titulo, texto){
+
+  modalTitle.textContent = titulo;
+
+  modalText.textContent = texto;
+
+  modal.classList.remove("hidden");
+
 }
 
-*{box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{
-  margin:0;
-  font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;
-  color:var(--text);
-  background:
-    radial-gradient(circle at top left, rgba(200,165,54,.20), transparent 23%),
-    radial-gradient(circle at top right, rgba(90,143,103,.12), transparent 24%),
-    radial-gradient(circle at bottom left, rgba(241,217,142,.16), transparent 18%),
-    var(--bg);
-  line-height:1.5;
-  overflow-x:hidden;
-}
-a{color:inherit;text-decoration:none}
-button{font:inherit}
-.skip-link{
-  position:absolute;left:-999px;top:10px;background:#000;color:#fff;padding:10px 14px;border-radius:12px;z-index:9999
-}
-.skip-link:focus{left:12px}
 
-.bg-decor .blob{
-  position:fixed;z-index:-1;border-radius:50%;filter:blur(40px);opacity:.36;pointer-events:none
-}
-.blob-1{width:260px;height:260px;background:rgba(200,165,54,.34);top:-50px;right:-80px}
-.blob-2{width:220px;height:220px;background:rgba(90,143,103,.18);bottom:12%;left:-70px}
-.blob-3{width:160px;height:160px;background:rgba(241,217,142,.24);top:34%;left:8%}
-.blob-4{width:120px;height:120px;background:rgba(255,255,255,.5);bottom:20%;right:12%}
+function fecharModal(){
 
-.hero-shell{padding:18px 6vw 0}
-.topbar{
-  position:sticky;top:10px;z-index:50;
-  display:flex;justify-content:space-between;align-items:center;gap:16px;
-  padding:14px 18px;border-radius:999px;
-  background:rgba(255,250,240,.78);backdrop-filter:blur(18px);
-  border:1px solid var(--border);box-shadow:var(--shadow)
-}
-.brand{display:flex;align-items:center;gap:12px}
-.brand-icon{
-  width:48px;height:48px;display:grid;place-items:center;border-radius:16px;
-  background:linear-gradient(145deg, rgba(200,165,54,.20), rgba(90,143,103,.12));
-  color:var(--gold)
-}
-.brand-icon svg{width:30px;height:30px}
-.brand-text{display:flex;flex-direction:column}
-.brand-text strong{font-size:.98rem}
-.brand-text small{color:var(--muted);font-size:.82rem}
-.top-links{display:flex;gap:14px;flex-wrap:wrap}
-.top-links a{color:var(--muted);padding:10px 12px;border-radius:999px;transition:.2s ease}
-.top-links a:hover,.top-links a:focus-visible{background:rgba(200,165,54,.14);color:var(--text);outline:none}
+  modal.classList.add("hidden");
 
-.section{padding:88px 6vw}
-.section.alt{background:linear-gradient(180deg, rgba(255,255,255,.45), rgba(255,255,255,.08))}
-.section-head{max-width:850px;margin:0 auto 28px}
-.section-kicker,.eyebrow{
-  letter-spacing:.18em;text-transform:uppercase;font-size:.78rem;font-weight:900;color:var(--green)
-}
-.section h2,.hero h1{line-height:1.02;margin:10px 0 14px}
-.section h2{font-size:clamp(2rem,4vw,3.3rem)}
-.hero h1{font-size:clamp(3rem,7vw,6rem);max-width:11ch}
-.subline{font-size:1.14rem;color:var(--muted);font-weight:700}
-.hero-text{max-width:58ch;color:var(--muted)}
-
-.hero{
-  display:grid;grid-template-columns:1fr 1fr;gap:34px;align-items:center;padding-top:50px
-}
-.hero-actions{display:flex;flex-wrap:wrap;gap:14px;margin:26px 0}
-.btn{
-  display:inline-flex;align-items:center;justify-content:center;min-height:52px;padding:0 20px;
-  border-radius:999px;border:1px solid transparent;cursor:pointer;transition:transform .2s ease, box-shadow .2s ease
-}
-.btn:hover,.btn:focus-visible{transform:translateY(-2px);outline:none}
-.btn-primary{background:var(--text);color:#fff;box-shadow:0 15px 28px rgba(29,26,20,.18)}
-.btn-secondary{background:rgba(255,255,255,.82);border-color:var(--border)}
-.hero-pills{display:flex;flex-wrap:wrap;gap:10px}
-.hero-pills span,.tag,.gallery-slot,.info-card,.video-feature,.video-placeholder,.modal{
-  background:var(--card);border:1px solid var(--border);border-radius:var(--radius);box-shadow:var(--shadow)
-}
-.hero-pills span{padding:8px 12px;color:var(--muted)}
-
-.hero-visual{position:relative;min-height:560px;display:grid;place-items:center}
-.pharma-card{
-  width:min(100%,520px);min-height:470px;padding:30px;position:relative;overflow:hidden;
-  background:linear-gradient(180deg,#fffdf7,#fff7df)
-}
-.pharma-card-top{display:flex;justify-content:space-between;gap:10px;align-items:center}
-.tag{
-  padding:8px 12px;border-radius:999px;font-size:.78rem;font-weight:900
-}
-.tag.soft{background:rgba(90,143,103,.12);color:var(--green)}
-.pharma-symbol{
-  width:190px;height:190px;margin:34px auto 18px;position:relative;color:var(--gold)
-}
-.pharma-symbol span{
-  position:absolute;background:currentColor;border-radius:12px
-}
-.pharma-symbol span:first-child{width:54px;height:190px;left:68px}
-.pharma-symbol span:last-child{width:190px;height:54px;top:68px}
-.pharma-card h2{font-size:2rem;text-align:center;margin:0 0 10px}
-.pharma-card p{max-width:38ch;margin:0 auto;text-align:center;color:var(--muted)}
-.pharma-mini-grid{
-  display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:22px
-}
-.pharma-mini-grid div{
-  padding:12px 14px;border-radius:18px;background:rgba(255,255,255,.82);text-align:center;font-weight:700
-}
-.glow,.floating-shape{
-  position:absolute;border-radius:50%;pointer-events:none;opacity:.7
-}
-.glow{filter:blur(2px)}
-.glow-1{width:110px;height:110px;background:rgba(200,165,54,.22);top:10%;left:6%}
-.glow-2{width:74px;height:74px;background:rgba(90,143,103,.18);bottom:12%;right:8%}
-.glow-3{width:50px;height:50px;background:rgba(241,217,142,.18);top:34%;right:16%}
-.floating-shape{animation:float 6s ease-in-out infinite}
-.f1{width:62px;height:24px;background:linear-gradient(90deg,var(--gold) 50%, #fff 50%);top:14%;right:18%;transform:rotate(-16deg)}
-.f2{width:20px;height:72px;background:linear-gradient(180deg,#fff,rgba(90,143,103,.34));bottom:18%;left:10%;border-radius:14px}
-.f3{width:56px;height:56px;background:linear-gradient(180deg,rgba(200,165,54,.25),rgba(90,143,103,.16));bottom:16%;right:24%;clip-path:polygon(38% 0,62% 0,62% 26%,88% 100%,12% 100%,38% 26%)}
-
-.video-feature{
-  max-width:1080px;margin:0 auto;padding:22px;display:grid;grid-template-columns:1.2fr .8fr;gap:18px
-}
-.video-badge{
-  display:inline-flex;width:max-content;padding:8px 12px;border-radius:999px;background:rgba(200,165,54,.14);font-weight:900
-}
-.video-placeholder{
-  min-height:360px;background:
-    radial-gradient(circle at 20% 20%, rgba(200,165,54,.16), transparent 24%),
-    radial-gradient(circle at 80% 30%, rgba(90,143,103,.14), transparent 24%),
-    linear-gradient(135deg, rgba(29,26,20,.96), rgba(200,165,54,.52));
-  color:#fff;display:grid;place-items:center;text-align:center;padding:24px
-}
-.play-ring{
-  width:80px;height:80px;border-radius:50%;display:grid;place-items:center;background:rgba(255,255,255,.14);backdrop-filter:blur(8px);font-size:1.55rem
-}
-.video-placeholder strong{display:block;font-size:1.2rem;margin-top:12px}
-.video-placeholder small{opacity:.9;margin-top:6px}
-.video-side{padding:10px 4px}
-.video-side ul{margin:0;padding-left:18px;display:grid;gap:8px;color:var(--muted)}
-
-.cards-grid,.gallery-grid{
-  display:grid;gap:18px
-}
-.cards-grid{grid-template-columns:repeat(4,minmax(0,1fr))}
-.gallery-grid{grid-template-columns:repeat(4,minmax(0,1fr))}
-.info-card,.gallery-slot{
-  padding:22px;cursor:pointer;transition:transform .2s ease, border-color .2s ease
-}
-.info-card{
-  display:grid;gap:6px;text-align:left;min-height:165px
-}
-.info-card span{font-size:1.8rem}
-.info-card strong{font-size:1.05rem}
-.info-card small{color:var(--muted)}
-.info-card:hover,.info-card:focus-visible,.gallery-slot:hover{
-  transform:translateY(-2px);outline:none;border-color:rgba(200,165,54,.45)
-}
-.gallery-slot{
-  min-height:170px;display:grid;place-items:center;font-weight:800;color:var(--muted);
-  background:linear-gradient(145deg, rgba(255,255,255,.82), rgba(200,165,54,.08))
 }
 
-.footer{padding:28px 6vw 40px;text-align:center;color:var(--muted)}
 
-.modal-backdrop{
-  position:fixed;inset:0;background:rgba(16,14,11,.55);display:grid;place-items:center;z-index:70;padding:20px
-}
-.modal{
-  width:min(560px,100%);padding:28px;position:relative;background:var(--card)
-}
-.modal-close{
-  position:absolute;top:14px;right:14px;width:38px;height:38px;border:none;border-radius:12px;background:rgba(29,26,20,.08);cursor:pointer;font-size:1.4rem
+document
+  .querySelectorAll(".info-card")
+  .forEach(card => {
+
+    card.addEventListener("click", () => {
+
+      abrirModal(
+        card.dataset.title,
+        card.dataset.text
+      );
+
+    });
+
+  });
+
+
+modalClose.addEventListener(
+  "click",
+  fecharModal
+);
+
+
+modal.addEventListener("click", event => {
+
+  if(event.target === modal){
+
+    fecharModal();
+
+  }
+
+});
+
+
+/* ==========================================================
+   DISCIPLINAS
+   ========================================================== */
+
+const subjects = [
+
+  [
+    "Saúde e SUS",
+    "Conhecimentos relacionados à saúde e ao Sistema Único de Saúde."
+  ],
+
+  [
+    "Anatomia e Fisiologia",
+    "Estudo do corpo humano e do seu funcionamento."
+  ],
+
+  [
+    "Biossegurança",
+    "Medidas de segurança, prevenção e proteção."
+  ],
+
+  [
+    "Microbiologia",
+    "Estudo dos microrganismos e suas relações com a saúde."
+  ],
+
+  [
+    "Bioquímica",
+    "Conhecimentos sobre processos químicos relacionados ao organismo."
+  ],
+
+  [
+    "Farmacologia",
+    "Estudo dos medicamentos e de conceitos relacionados à sua ação."
+  ],
+
+  [
+    "Saúde e Meio Ambiente",
+    "Relações entre saúde, ambiente e responsabilidade."
+  ],
+
+  [
+    "Segurança no Trabalho",
+    "Práticas importantes para ambientes profissionais seguros."
+  ]
+
+];
+
+
+const subjectContainer =
+  document.getElementById("subjects");
+
+
+subjects.forEach((subject, index) => {
+
+  const button =
+    document.createElement("button");
+
+  button.innerHTML = `
+    <b>${subject[0]}</b>
+    <small>${subject[1]}</small>
+  `;
+
+  button.addEventListener("click", () => {
+
+    abrirModal(
+      subject[0],
+      subject[1]
+    );
+
+  });
+
+  subjectContainer.appendChild(button);
+
+});
+
+
+/* ==========================================================
+   DESAFIO DO DESCARTE
+   ========================================================== */
+
+const discardOptions =
+  document.querySelectorAll(
+    "#discardOptions button"
+  );
+
+const discardFeedback =
+  document.getElementById(
+    "discardFeedback"
+  );
+
+
+discardOptions.forEach(button => {
+
+  button.addEventListener("click", () => {
+
+    const correto =
+      button.dataset.correct === "true";
+
+    if(correto){
+
+      discardFeedback.textContent =
+        "✓ Boa escolha! Quando houver um ponto de coleta apropriado, encaminhe medicamentos vencidos ou sem uso conforme as orientações locais.";
+
+    }else{
+
+      discardFeedback.textContent =
+        "✗ Essa não é a melhor opção quando existe um ponto de coleta apropriado. Evite descartar medicamentos de forma inadequada.";
+
+    }
+
+  });
+
+});
+
+
+/* ==========================================================
+   DETETIVE DA EMBALAGEM
+   ========================================================== */
+
+const spots =
+  document.querySelectorAll(".spot");
+
+const progress =
+  document.getElementById(
+    "detectiveProgress"
+  );
+
+const detectiveText =
+  document.getElementById(
+    "detectiveText"
+  );
+
+const foundItems =
+  document.getElementById(
+    "foundItems"
+  );
+
+
+let foundCount = 0;
+
+
+spots.forEach(spot => {
+
+  spot.addEventListener("click", () => {
+
+    if(spot.disabled){
+
+      return;
+
+    }
+
+    spot.disabled = true;
+
+    spot.textContent = "✓";
+
+    foundCount++;
+
+    progress.style.width =
+      `${foundCount * 20}%`;
+
+    detectiveText.textContent =
+      `Você encontrou ${foundCount} de 5.`;
+
+    const item =
+      document.createElement("div");
+
+    item.className =
+      "found-item";
+
+    item.textContent =
+      "✓ " + spot.dataset.info;
+
+    foundItems.appendChild(item);
+
+
+    if(foundCount === 5){
+
+      detectiveText.textContent =
+        "🎉 Você encontrou todas as informações!";
+
+    }
+
+  });
+
+});
+
+
+/* ==========================================================
+   QUIZ
+   ========================================================== */
+
+const questions = [
+
+  {
+    question:
+      "Onde a teoria encontra a prática?",
+
+    answer:
+      "No laboratório.",
+
+    options: [
+      "Na cantina.",
+      "No laboratório.",
+      "Na entrada.",
+      "No estacionamento."
+    ]
+  },
+
+  {
+    question:
+      "O que faz parte da formação?",
+
+    answer:
+      "Teoria, prática e troca de experiências.",
+
+    options: [
+      "Apenas leitura.",
+      "Apenas provas.",
+      "Teoria, prática e troca de experiências.",
+      "Apenas atividades externas."
+    ]
+  },
+
+  {
+    question:
+      "Qual dessas áreas está relacionada ao curso?",
+
+    answer:
+      "Farmacologia.",
+
+    options: [
+      "Astronomia.",
+      "Arquitetura.",
+      "Farmacologia.",
+      "Geologia."
+    ]
+  },
+
+  {
+    question:
+      "Quem participa da rotina do curso?",
+
+    answer:
+      "Professores e alunos.",
+
+    options: [
+      "Apenas visitantes.",
+      "Apenas funcionários.",
+      "Professores e alunos.",
+      "Apenas familiares."
+    ]
+  },
+
+  {
+    question:
+      "Qual mensagem representa o curso?",
+
+    answer:
+      "Conhecimento, prática, cuidado e responsabilidade.",
+
+    options: [
+      "Apenas tecnologia.",
+      "Apenas teoria.",
+      "Conhecimento, prática, cuidado e responsabilidade.",
+      "Velocidade e competição."
+    ]
+  }
+
+];
+
+
+let currentQuestion = 0;
+let score = 0;
+let answered = false;
+
+
+const quizQuestion =
+  document.getElementById(
+    "quizQuestion"
+  );
+
+const quizNumber =
+  document.getElementById(
+    "quizNumber"
+  );
+
+const quizScore =
+  document.getElementById(
+    "quizScore"
+  );
+
+const quizProgress =
+  document.getElementById(
+    "quizProgress"
+  );
+
+const quizOptions =
+  document.getElementById(
+    "quizOptions"
+  );
+
+const quizFeedback =
+  document.getElementById(
+    "quizFeedback"
+  );
+
+const nextQuestion =
+  document.getElementById(
+    "nextQuestion"
+  );
+
+const quizResult =
+  document.getElementById(
+    "quizResult"
+  );
+
+
+function carregarPergunta(){
+
+  const pergunta =
+    questions[currentQuestion];
+
+  answered = false;
+
+  quizQuestion.textContent =
+    pergunta.question;
+
+  quizNumber.textContent =
+    `Pergunta ${currentQuestion + 1} de ${questions.length}`;
+
+  quizScore.textContent =
+    `${score} acertos`;
+
+  quizProgress.style.width =
+    `${(currentQuestion / questions.length) * 100}%`;
+
+  quizFeedback.textContent = "";
+
+  nextQuestion.classList.add("hidden");
+
+  quizResult.classList.add("hidden");
+
+  quizOptions.innerHTML = "";
+
+
+  pergunta.options.forEach(option => {
+
+    const button =
+      document.createElement("button");
+
+    button.textContent = option;
+
+
+    button.addEventListener("click", () => {
+
+      if(answered){
+
+        return;
+
+      }
+
+      answered = true;
+
+      const correto =
+        option === pergunta.answer;
+
+
+      if(correto){
+
+        score++;
+
+        button.classList.add(
+          "correct"
+        );
+
+        quizFeedback.textContent =
+          "✓ Acertou!";
+
+      }else{
+
+        button.classList.add(
+          "wrong"
+        );
+
+        quizFeedback.textContent =
+          `✗ A resposta correta é: ${pergunta.answer}`;
+
+      }
+
+
+      quizScore.textContent =
+        `${score} acertos`;
+
+      quizProgress.style.width =
+        `${((currentQuestion + 1) / questions.length) * 100}%`;
+
+      nextQuestion.classList.remove(
+        "hidden"
+      );
+
+    });
+
+
+    quizOptions.appendChild(button);
+
+  });
+
 }
 
-.reveal{opacity:0;transform:translateY(16px);transition:opacity .7s ease, transform .7s ease}
-.reveal.show{opacity:1;transform:none}
 
-@keyframes float{50%{transform:translateY(-10px)}}
+nextQuestion.addEventListener(
+  "click",
+  () => {
 
-@media (max-width: 1100px){
-  .hero,.video-feature,.cards-grid,.gallery-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
-  .hero{grid-template-columns:1fr}
-  .hero-visual{min-height:420px}
+    currentQuestion++;
+
+    if(
+      currentQuestion <
+      questions.length
+    ){
+
+      carregarPergunta();
+
+    }else{
+
+      finalizarQuiz();
+
+    }
+
+  }
+);
+
+
+function finalizarQuiz(){
+
+  quizOptions.innerHTML = "";
+
+  nextQuestion.classList.add(
+    "hidden"
+  );
+
+  quizQuestion.textContent =
+    "🎉 Desafio concluído!";
+
+  quizFeedback.textContent = "";
+
+  quizResult.innerHTML = `
+
+    <strong>
+      Você fez ${score} de ${questions.length} pontos!
+    </strong>
+
+    <p>
+      ${
+        score === 5
+        ? "Perfeito! Você mandou muito bem."
+        : score >= 3
+        ? "Muito bom! Você já conhece bastante."
+        : "Que tal explorar novamente o site?"
+      }
+    </p>
+
+    <button
+      class="button button-primary"
+      id="restartQuiz">
+
+      Jogar novamente
+
+    </button>
+
+  `;
+
+
+  quizResult.classList.remove(
+    "hidden"
+  );
+
+
+  document
+    .getElementById("restartQuiz")
+    .addEventListener(
+      "click",
+      reiniciarQuiz
+    );
+
 }
-@media (max-width: 760px){
-  .hero-shell{padding-inline:16px}
-  .section{padding:68px 16px}
-  .topbar{border-radius:26px}
-  .top-links{display:none}
-  .hero,.video-feature,.cards-grid,.gallery-grid{grid-template-columns:1fr}
-  .hero-actions{flex-direction:column}
-  .hero-actions .btn{width:100%}
-  .hero-visual{min-height:360px}
+
+
+function reiniciarQuiz(){
+
+  currentQuestion = 0;
+
+  score = 0;
+
+  carregarPergunta();
+
 }
-@media (prefers-reduced-motion: reduce){
-  *{scroll-behavior:auto}
-  .floating-shape,.reveal{animation:none;transition:none}
-}
+
+
+carregarPergunta();
+
+
+/* ==========================================================
+   ACESSIBILIDADE
+   ========================================================== */
+
+const accessibilityButton =
+  document.getElementById(
+    "accessibilityButton"
+  );
+
+const accessibilityPanel =
+  document.getElementById(
+    "accessibilityPanel"
+  );
+
+const closeAccessibility =
+  document.getElementById(
+    "closeAccessibility"
+  );
+
+
+accessibilityButton.addEventListener(
+  "click",
+  () => {
+
+    const aberto =
+      accessibilityPanel
+        .classList
+        .toggle("open");
+
+    accessibilityButton.setAttribute(
+      "aria-expanded",
+      aberto
+    );
+
+  }
+);
+
+
+closeAccessibility.addEventListener(
+  "click",
+  () => {
+
+    accessibilityPanel.classList.remove(
+      "open"
+    );
+
+    accessibilityButton.setAttribute(
+      "aria-expanded",
+      "false"
+    );
+
+  }
+);
+
+
+document
+  .querySelectorAll(
+    "[data-accessibility]"
+  )
+  .forEach(button => {
+
+    button.addEventListener(
+      "click",
+      () => {
+
+        const action =
+          button.dataset.accessibility;
+
+
+        if(action === "increase"){
+
+          document.body.classList.add(
+            "big-text"
+          );
+
+          document.body.classList.remove(
+            "small-text"
+          );
+
+        }
+
+
+        if(action === "decrease"){
+
+          document.body.classList.add(
+            "small-text"
+          );
+
+          document.body.classList.remove(
+            "big-text"
+          );
+
+        }
+
+
+        if(action === "contrast"){
+
+          document.body.classList.toggle(
+            "high-contrast"
+          );
+
+        }
+
+
+        if(action === "highlight"){
+
+          document.body.classList.toggle(
+            "highlight-links"
+          );
+
+        }
+
+
+        if(action === "motion"){
+
+          document.body.classList.toggle(
+            "reduced-motion"
+          );
+
+        }
+
+
+        if(
+          action === "read" &&
+          "speechSynthesis" in window
+        ){
+
+          speechSynthesis.cancel();
+
+          const texto =
+            document.querySelector(
+              "main"
+            ).innerText;
+
+          const leitura =
+            new SpeechSynthesisUtterance(
+              texto
+            );
+
+          leitura.lang = "pt-BR";
+
+          speechSynthesis.speak(
+            leitura
+          );
+
+        }
+
+
+        if(
+          action === "stop" &&
+          "speechSynthesis" in window
+        ){
+
+          speechSynthesis.cancel();
+
+        }
+
+      }
+    );
+
+  });
+
+
+/* ==========================================================
+   LINKS DOS INSTAGRAMS
+   ========================================================== */
+
+document
+  .querySelectorAll(
+    'a[href*="tcfarmacia01"]'
+  )
+  .forEach(link => {
+
+    link.href =
+      INSTAGRAM_TURMA;
+
+  });
+
+
+document
+  .querySelectorAll(
+    'a[href*="iemaviana"]'
+  )
+  .forEach(link => {
+
+    link.href =
+      INSTAGRAM_IEMA;
+
+  });
+
+
+/* ==========================================================
+   VÍDEO PRINCIPAL
+   ========================================================== */
+
+/*
+   Quando VIDEO_PRINCIPAL receber um link,
+   o espaço do vídeo poderá ser atualizado.
+
+   Para vídeo do Instagram/YouTube,
+   recomendamos manter o link como botão,
+   pois esses serviços possuem suas próprias
+   regras de incorporação.
+*/
+
+if(VIDEO_PRINCIPAL){
+
+  const videoBox =
+    document.querySelector(
+      ".video-placeholder"
+    );
+
+  if(videoBox){
+
+    videoBox.innerHTML = `
+
+      <div class="play-circle">
+        ▶
+      </div>
+
+      <h3>
+        Nosso vídeo
+      </h3>
+
+      <p>
+        Assista à apresentação do curso.
+      </p>
+
+      <a
+        class="button button-primary"
+        href="${VIDEO_PRINCIPAL}"
+        target="_blank"
+        rel="noopener noreferrer">
+
+        Assistir vídeo →
+
+      </a>
+
+    `;
+
+  }
+
+         }
