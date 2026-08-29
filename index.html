@@ -1,47 +1,40 @@
-<!DOCTYPE html>
+    <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   <meta name="theme-color" content="#c8a536" />
-  <meta name="description" content="Técnico em Farmácia — IEMA Viana | Feira de Profissões" />
+  <meta name="description" content="Técnico em Farmácia — IEMA Viana | Site interativo para QR Code" />
   <title>Técnico em Farmácia — IEMA Viana</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
 
-  <div class="bg-blobs" aria-hidden="true">
-    <span></span><span></span><span></span>
+  <div class="bg-decor" aria-hidden="true">
+    <span class="blob blob-1"></span>
+    <span class="blob blob-2"></span>
+    <span class="blob blob-3"></span>
+    <span class="blob blob-4"></span>
   </div>
 
   <header class="hero-shell" id="inicio">
-    <nav class="navbar" aria-label="Navegação principal">
+    <nav class="topbar" aria-label="Navegação principal">
       <a class="brand" href="#inicio" aria-label="Ir para o início">
-        <span class="brand-mark" aria-hidden="true">
-          <svg viewBox="0 0 80 80" role="img" aria-hidden="true">
+        <span class="brand-icon" aria-hidden="true">
+          <svg viewBox="0 0 80 80" aria-hidden="true" focusable="false">
             <rect x="18" y="18" width="44" height="44" rx="12" fill="none" stroke="currentColor" stroke-width="6"></rect>
             <path d="M40 26v28M26 40h28" stroke="currentColor" stroke-width="8" stroke-linecap="round"></path>
           </svg>
         </span>
         <span class="brand-text">
           <strong>Técnico em Farmácia</strong>
-          <small>IEMA Viana • Feira de Profissões</small>
+          <small>IEMA Viana</small>
         </span>
       </a>
-
-      <button class="nav-toggle" id="navToggle" aria-label="Abrir menu" aria-expanded="false" aria-controls="navMenu">
-        <span></span><span></span><span></span>
-      </button>
-
-      <div class="nav-menu" id="navMenu">
-        <a href="#inicio">Início</a>
+      <div class="top-links">
         <a href="#video">Vídeo</a>
-        <a href="#curso">Curso</a>
-        <a href="#estudos">O que estudamos</a>
-        <a href="#pratica">Na prática</a>
-        <a href="#quiz">Quiz</a>
-        <a href="#iema">IEMA</a>
+        <a href="#explorar">Explorar</a>
         <a href="#galeria">Galeria</a>
       </div>
     </nav>
@@ -50,35 +43,45 @@
       <div class="hero-copy reveal">
         <p class="eyebrow">IEMA VIANA</p>
         <h1>Técnico em Farmácia</h1>
-        <p class="lead">Conhecimento que cuida. Ciência que transforma.</p>
-        <p class="hero-text">Uma experiência interativa da Feira de Profissões para conhecer a rotina, o laboratório, os estudos e as pessoas por trás do curso.</p>
-
+        <p class="subline">Conheça o nosso curso por dentro.</p>
+        <p class="hero-text">Uma experiência curta, bonita e interativa para quem acessa pelo QR Code e quer descobrir o curso sem ficar só lendo texto.</p>
         <div class="hero-actions">
-          <a class="btn btn-primary" href="#video">Começar a experiência</a>
-          <a class="btn btn-secondary" href="#quiz">Explorar o quiz</a>
+          <a class="btn btn-primary" href="#video">COMEÇAR A EXPERIÊNCIA</a>
+          <a class="btn btn-secondary" href="#explorar">VER OS CARDS</a>
         </div>
-
-        <div class="hero-badges" aria-label="Destaques">
-          <span>Ciência</span><span>Saúde</span><span>Prática</span><span>Cuidado</span>
+        <div class="hero-pills" aria-label="Destaques">
+          <span>Saúde</span><span>Ciência</span><span>Prática</span><span>Cuidado</span>
         </div>
       </div>
 
       <div class="hero-visual reveal" aria-hidden="true">
-        <div class="halo halo-1"></div>
-        <div class="halo halo-2"></div>
-        <div class="halo halo-3"></div>
-        <div class="symbol-card">
+        <div class="glow glow-1"></div>
+        <div class="glow glow-2"></div>
+        <div class="glow glow-3"></div>
+        <div class="pharma-card">
+          <div class="pharma-card-top">
+            <span class="tag">FEIRA DE PROFISSÕES</span>
+            <span class="tag soft">INTERATIVO</span>
+          </div>
+
           <div class="pharma-symbol">
             <span></span><span></span>
           </div>
-          <div class="symbol-copy">
-            <strong>Curso Técnico</strong>
-            <span>de Farmácia</span>
+
+          <h2>Um site para explorar em poucos cliques.</h2>
+          <p>Visual dourado, moderno e com uma navegação rápida para causar boa impressão.</p>
+
+          <div class="pharma-mini-grid">
+            <div>📚 Sala</div>
+            <div>🧪 Laboratório</div>
+            <div>👩‍🏫 Professores</div>
+            <div>👩‍🎓 Alunos</div>
           </div>
         </div>
-        <div class="floating-pill pill-1"></div>
-        <div class="floating-pill pill-2"></div>
-        <div class="floating-pill pill-3"></div>
+
+        <div class="floating-shape f1"></div>
+        <div class="floating-shape f2"></div>
+        <div class="floating-shape f3"></div>
       </div>
     </section>
   </header>
@@ -87,153 +90,68 @@
     <section class="section" id="video">
       <div class="section-head reveal">
         <p class="section-kicker">VÍDEO PRINCIPAL</p>
-        <h2>Vem conhecer o nosso curso.</h2>
-        <p>Espaço reservado para o vídeo principal do roteiro, com o melhor momento da apresentação.</p>
+        <h2>Vem conhecer o nosso curso</h2>
+        <p>Espaço central e destacado para o vídeo da apresentação.</p>
       </div>
 
       <article class="video-feature reveal">
-        <div class="video-placeholder">
-          <div class="play-badge">▶</div>
-          <p>Vídeo principal da apresentação</p>
-          <small>Depois você cola o link do vídeo aqui.</small>
+        <div class="video-frame">
+          <div class="video-badge">VÍDEO PRINCIPAL</div>
+          <div class="video-placeholder">
+            <div class="play-ring">▶</div>
+            <strong>Insira aqui o vídeo da apresentação</strong>
+            <small>Fachada • Sala de aula • Laboratório • Materiais • Professores • Alunos</small>
+          </div>
         </div>
-        <div class="video-note">
+
+        <aside class="video-side">
           <h3>O que o vídeo mostra</h3>
           <ul>
-            <li>Fachada, entrada e corredor do IEMA.</li>
-            <li>Sala de aula, alunos, professor e materiais.</li>
-            <li>Laboratório, equipamentos e prática.</li>
-            <li>Professores e estudantes em ação.</li>
+            <li>Fachada e entrada da escola.</li>
+            <li>Sala de aula e atividade dos alunos.</li>
+            <li>Laboratório e materiais.</li>
+            <li>Professores e prática do curso.</li>
           </ul>
-        </div>
+        </aside>
       </article>
     </section>
 
-    <section class="section alt" id="curso">
+    <section class="section alt" id="explorar">
       <div class="section-head reveal">
-        <p class="section-kicker">O CURSO</p>
-        <h2>Conheça o Técnico em Farmácia por dentro.</h2>
-        <p>Toque nos cards para abrir explicações curtas e objetivas.</p>
+        <p class="section-kicker">EXPERIÊNCIA INTERATIVA</p>
+        <h2>Toque nos cards para descobrir mais.</h2>
+        <p>É rápido, visual e feito para prender a atenção.</p>
       </div>
 
-      <div class="grid-4">
-        <button class="info-card reveal" data-modal="curso1">
-          <span class="info-icon">💊</span>
-          <h3>Medicamentos</h3>
-          <p>Organização, cuidado e compreensão básica da área farmacêutica.</p>
+      <div class="cards-grid">
+        <button class="info-card reveal" data-modal="card1">
+          <span>💊</span>
+          <strong>O curso</strong>
+          <small>Entenda a formação.</small>
         </button>
-        <button class="info-card reveal" data-modal="curso2">
-          <span class="info-icon">🧪</span>
-          <h3>Laboratório</h3>
-          <p>Rotina prática, materiais, biossegurança e responsabilidade.</p>
+        <button class="info-card reveal" data-modal="card2">
+          <span>🧪</span>
+          <strong>Laboratório</strong>
+          <small>Veja a parte prática.</small>
         </button>
-        <button class="info-card reveal" data-modal="curso3">
-          <span class="info-icon">🧠</span>
-          <h3>Ciência</h3>
-          <p>Conhecimento para entender saúde, corpo humano e processos.</p>
+        <button class="info-card reveal" data-modal="card3">
+          <span>📚</span>
+          <strong>Rotina</strong>
+          <small>Sala e aprendizado.</small>
         </button>
-        <button class="info-card reveal" data-modal="curso4">
-          <span class="info-icon">🤝</span>
-          <h3>Cuidado</h3>
-          <p>Comunicação clara, atenção às pessoas e atuação responsável.</p>
+        <button class="info-card reveal" data-modal="card4">
+          <span>👥</span>
+          <strong>Pessoas</strong>
+          <small>Professores e alunos.</small>
         </button>
-      </div>
-    </section>
-
-    <section class="section" id="estudos">
-      <div class="section-head reveal">
-        <p class="section-kicker">O QUE ESTUDAMOS</p>
-        <h2>As matérias aparecem por áreas.</h2>
-        <p>O visitante clica em uma área e entende rapidamente o que ela representa.</p>
-      </div>
-
-      <div class="grid-2">
-        <button class="area-card reveal" data-modal="area1">
-          <strong>Saúde e SUS</strong>
-          <span>Introdução ao SUS • Legislação do SUS • Epidemiologia</span>
-        </button>
-        <button class="area-card reveal" data-modal="area2">
-          <strong>Corpo Humano</strong>
-          <span>Anatomia e Fisiologia do Corpo Humano</span>
-        </button>
-        <button class="area-card reveal" data-modal="area3">
-          <strong>Prevenção e Segurança</strong>
-          <span>Biossegurança, Higiene e Profilaxia • Saúde, Meio Ambiente e Segurança no Trabalho</span>
-        </button>
-        <button class="area-card reveal" data-modal="area4">
-          <strong>Ciências Farmacêuticas</strong>
-          <span>Microbiologia e Parasitologia • Bioquímica e Farmacologia</span>
-        </button>
-      </div>
-    </section>
-
-    <section class="section alt" id="pratica">
-      <div class="section-head reveal">
-        <p class="section-kicker">NA PRÁTICA</p>
-        <h2>Uma experiência rápida e interativa.</h2>
-        <p>Escolha o que quer descobrir primeiro.</p>
-      </div>
-
-      <div class="explore-grid">
-        <button class="explore-card reveal" data-modal="pratica1">🧪 Entre no laboratório</button>
-        <button class="explore-card reveal" data-modal="pratica2">📚 Nossa rotina</button>
-        <button class="explore-card reveal" data-modal="pratica3">👩‍🏫 Professores</button>
-        <button class="explore-card reveal" data-modal="pratica4">👩‍🎓 Alunos</button>
-      </div>
-
-      <div class="timeline reveal">
-        <div>Conhecer</div><span>→</span>
-        <div>Aprender</div><span>→</span>
-        <div>Praticar</div><span>→</span>
-        <div>Desenvolver habilidades</div><span>→</span>
-        <div>Preparar-se para a profissão</div>
-      </div>
-    </section>
-
-    <section class="section" id="quiz">
-      <div class="section-head reveal">
-        <p class="section-kicker">QUIZ</p>
-        <h2>Você prestou atenção?</h2>
-        <p>Responda rápido e veja o resultado no final.</p>
-      </div>
-
-      <article class="quiz-card reveal" aria-live="polite">
-        <div class="quiz-top">
-          <span id="quizCounter">Pergunta 1 de 5</span>
-          <span id="quizScore">0 pontos</span>
-        </div>
-        <div class="progress"><span id="quizBar"></span></div>
-        <h3 id="quizQuestion"></h3>
-        <div class="quiz-options" id="quizOptions"></div>
-        <div class="feedback" id="quizFeedback"></div>
-        <button class="btn btn-primary" id="quizRestart" hidden>Jogar novamente</button>
-      </article>
-    </section>
-
-    <section class="section alt" id="iema">
-      <div class="section-head reveal">
-        <p class="section-kicker">IEMA</p>
-        <h2>Conheça o IEMA.</h2>
-        <p>Espaço reservado para fotos da escola, laboratório, estudantes e projetos.</p>
-      </div>
-
-      <div class="info-panels">
-        <article class="mini-panel reveal">
-          <h3>Instituto de Educação, Ciência e Tecnologia do Maranhão</h3>
-          <p>Base institucional do projeto, com espaço para informações da unidade e da turma.</p>
-        </article>
-        <article class="mini-panel reveal">
-          <h3>Onde tudo acontece</h3>
-          <p>Fachada, entrada, sala de aula, laboratório e atividades do curso.</p>
-        </article>
       </div>
     </section>
 
     <section class="section" id="galeria">
       <div class="section-head reveal">
         <p class="section-kicker">GALERIA</p>
-        <h2>Nossa turma em destaque.</h2>
-        <p>Mosaico pronto para receber as fotos reais depois.</p>
+        <h2>Espaço para fotos da turma.</h2>
+        <p>Depois você troca pelos arquivos reais.</p>
       </div>
 
       <div class="gallery-grid">
@@ -241,52 +159,18 @@
         <div class="gallery-slot reveal">Foto 2</div>
         <div class="gallery-slot reveal">Foto 3</div>
         <div class="gallery-slot reveal">Foto 4</div>
-        <div class="gallery-slot reveal">Foto 5</div>
-        <div class="gallery-slot reveal">Foto 6</div>
-      </div>
-    </section>
-
-    <section class="section alt" id="final">
-      <div class="final-card reveal">
-        <p class="section-kicker">FINAL</p>
-        <h2>Agora você já conheceu um pouco do universo do Técnico em Farmácia.</h2>
-        <p>Conclua a experiência, explore os blocos e descubra como o curso combina ciência, prática e cuidado.</p>
-        <div class="hero-actions">
-          <a class="btn btn-primary" href="#inicio">Explorar novamente</a>
-          <a class="btn btn-secondary" href="#quiz">Fazer o quiz</a>
-        </div>
       </div>
     </section>
   </main>
 
   <footer class="footer">
     <p>Técnico em Farmácia • IEMA Viana</p>
-    <p>Feira de Profissões 2026</p>
+    <p>Feira de Profissões</p>
   </footer>
-
-  <button class="access-fab" id="accessFab" aria-label="Abrir painel de acessibilidade">♿ Acessibilidade</button>
-
-  <aside class="access-panel" id="accessPanel" aria-hidden="true">
-    <div class="access-panel-head">
-      <strong>Acessibilidade</strong>
-      <button class="icon-close" id="accessClose" aria-label="Fechar painel">×</button>
-    </div>
-    <div class="access-controls">
-      <button class="access-btn" data-action="text-sm">A-</button>
-      <button class="access-btn" data-action="text-lg">A+</button>
-      <button class="access-btn" data-action="contrast">Alto contraste</button>
-      <button class="access-btn" data-action="links">Destacar links</button>
-      <button class="access-btn" data-action="spacing">Espaçamento</button>
-      <button class="access-btn" data-action="motion">Reduzir animações</button>
-      <button class="access-btn" data-action="speak">Ler conteúdo</button>
-      <button class="access-btn" data-action="stop">Parar leitura</button>
-    </div>
-    <p class="access-note">VLibras está integrado na página.</p>
-  </aside>
 
   <div class="modal-backdrop" id="modalBackdrop" hidden>
     <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
-      <button class="icon-close modal-close" id="modalClose" aria-label="Fechar modal">×</button>
+      <button class="modal-close" id="modalClose" aria-label="Fechar">×</button>
       <h3 id="modalTitle"></h3>
       <p id="modalText"></p>
     </div>
